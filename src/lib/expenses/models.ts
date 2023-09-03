@@ -11,7 +11,7 @@ export interface Transaction {
     transactionType: TransactionType
     amount: number
     sourceId: string
-    targetIDs: string[]
+    targetIds: string[]
 }
 
 

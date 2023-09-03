@@ -16,7 +16,7 @@
 	{:else if project == undefined}
 		NotFound
 	{:else}
-		<table>
+		<table class="table-fixed w-full">
 			<thead>
 				<th>Name</th>
 				<th>Amount</th>
@@ -31,13 +31,13 @@
 			{/each}
 		</table>
 	{/if}
-
-	<nav>test</nav>
+</div>
+<div class="fixed grid grid-cols-3 w-full bottom-10">
+	<div></div>
+	<a id="create-new-btn" class="content-center" href="{project?.id}/create-transaction">
+		<button class="button">Add New</button>
+	</a>
 </div>
 
 <style>
-	table {
-		width: 100%;
-		table-layout: fixed;
-	}
 </style>

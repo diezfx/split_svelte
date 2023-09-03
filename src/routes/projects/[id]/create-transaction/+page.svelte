@@ -24,20 +24,20 @@
 		</label>
 		<label for="source">
 			Source
-			<input name="source" />
+			<input name="sourceId" />
 		</label>
 		<label for="amount">
 			Amount
-			<input type="number" name="amount" bind:value={amount} />
+			<input type="number" step="0.01" name="amount" bind:value={amount} />
 		</label>
 
 		<fieldset>
-			<label for="targetUser-1">
-				<input type="checkbox" name="user1" />
+			<label>
+				<input type="checkbox" name="targetIds" value="user1" />
 				User1
 			</label>
-			<label for="targetUser-2">
-				<input type="checkbox" name="user2" />
+			<label>
+				<input type="checkbox" name="targetIds" value="user2" />
 				User2
 			</label>
 		</fieldset>

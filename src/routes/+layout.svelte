@@ -2,6 +2,7 @@
 	import Header from './Header.svelte';
 	import './styles.css';
 	import '@picocss/pico/css/pico.css';
+	import '../app.css';
 
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
