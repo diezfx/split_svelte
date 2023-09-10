@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 
+	export let data;
 	let test: string;
 	let amount: string;
 
@@ -24,7 +25,11 @@
 		</label>
 		<label for="source">
 			Source
-			<input name="sourceId" />
+			<select name="sourceId">
+				{#each data.users as u}
+					<option>{u.id}</option>
+				{/each}
+			</select>
 		</label>
 		<label for="amount">
 			Amount
@@ -32,14 +37,12 @@
 		</label>
 
 		<fieldset>
-			<label>
-				<input type="checkbox" name="targetIds" value="user1" />
-				User1
-			</label>
-			<label>
-				<input type="checkbox" name="targetIds" value="user2" />
-				User2
-			</label>
+			{#each data.users as u}
+				<label>
+					<input type="checkbox" name="targetIds" value={u.id} />
+					{u.id}
+				</label>
+			{/each}
 		</fieldset>
 
 		<button>Create</button>
