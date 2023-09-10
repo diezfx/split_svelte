@@ -16,7 +16,7 @@ export const actions = {
 
         let project = { id: v4(), name: name, members: [session.user.email] } as Project
 
-        let expenseApi = createExpenseApi(fetch)
+        let expenseApi = createExpenseApi(fetch, session)
         await expenseApi.addProject(project)
 
 

@@ -9,14 +9,12 @@
 	<table class="table w-full">
 		<thead class="bg-primary-50">
 			<th scope="col">Name</th>
-			<th scope="col">#Member</th>
 			<th scope="col">#Transactions</th>
 		</thead>
 		<tbody>
 			{#each projectList as project, index}
 				<tr class="border-b">
 					<td><a href="projects/{project.id}">{project.name}</a></td>
-					<td>{project.members.length}</td>
 					<td>{project.transactions.length}</td>
 				</tr>
 			{/each}
