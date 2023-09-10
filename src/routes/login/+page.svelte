@@ -28,23 +28,11 @@
 				redirectTo: `${location.origin}/auth/callback`
 			}
 		});
-
-	const handleSignOut = async () => {
-		await supabase.auth.signOut();
-	};
 </script>
 
-<form on:submit={handleSignUp}>
-	<label for="email">
-		Email
-		<input name="email" bind:value={email} />
-	</label>
-	<label for="password">
-		Password
-		<input type="password" name="password" bind:value={password} />
-	</label>
-	<button>Sign up</button>
-</form>
+<div class="container">
+	<button on:click={handleSignIn}>Sign in with Goggle</button>
+</div>
 
-<button on:click={handleSignIn}>Sign in</button>
-<button on:click={handleSignOut}>Sign out</button>
+<style>
+</style>

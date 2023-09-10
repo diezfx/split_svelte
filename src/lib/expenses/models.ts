@@ -14,6 +14,10 @@ export interface Transaction {
     targetIds: string[]
 }
 
+export interface User {
+    id: string
+}
+
 
 export interface Project {
     id: string
