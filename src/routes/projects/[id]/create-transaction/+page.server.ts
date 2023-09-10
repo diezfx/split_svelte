@@ -4,7 +4,7 @@ import { redirect, type Actions } from "@sveltejs/kit"
 import { v4 } from "uuid"
 
 export const actions = {
-    default: async ({ fetch, request, url, locals: { supabase }, params }) => {
+    default: async ({ fetch, request, url, locals: { supabase, getSession }, params }) => {
         const formData = await request.formData()
 
         const name = formData.get("name")
@@ -19,9 +19,10 @@ export const actions = {
 
 
 
+        let session = await getSession()
         let transaction = { id: v4(), amount: amount, name: name, sourceId: sourceId, targetIds: targetIds, transactionType: transactionType } as Transaction
 
-        const expenseApi = createExpenseApi(fetch)
+        const expenseApi = createExpenseApi(fetch, session!)
 
         await expenseApi.addTransaction(params.id!, transaction)
 
