@@ -5,46 +5,62 @@
 	let test: string;
 	let amount: string;
 
+	let users = data.users ?? [];
+
 	import { TransactionType } from '$lib/expenses/models';
 	const transactionTypes = Object.keys(TransactionType);
 </script>
 
-<div class="container">
-	<form method="post" use:enhance>
-		<label for="name">
-			Name
-			<input id="name" name="name" />
-		</label>
-		<label for="transactionType">
-			TransactionType
-			<select id="transactionType" bind:value={test}>
+<div class="container mx-auto">
+	<form method="post" class="form-control grid grid-cols-1 gap-5" use:enhance>
+		<div>
+			<label class="label" for="name">
+				<span class="label-text">Name</span>
+			</label>
+
+			<input id="name" class="input input-primary input-bordered w-full max-w-xs" name="name" />
+		</div>
+		<div>
+			<label for="transactionType" class="label"> TransactionType </label>
+
+			<select
+				id="transactionType"
+				class="select select-bordered select-primary w-full max-w-xs"
+				bind:value={test}
+			>
 				{#each transactionTypes as t}
 					<option selected>{t}</option>
 				{/each}
 			</select>
-		</label>
-		<label for="source">
-			Source
-			<select name="sourceId">
-				{#each data.users as u}
+		</div>
+		<div>
+			<label for="source" class="label">
+				<span class="label-text"> Source </span>
+			</label>
+			<select name="sourceId" class="select select-bordered w-full max-w-xs">
+				{#each users as u}
 					<option>{u.id}</option>
 				{/each}
 			</select>
-		</label>
-		<label for="amount">
-			Amount
-			<input type="number" step="0.01" name="amount" bind:value={amount} />
-		</label>
+		</div>
+		<div>
+			<label class="label" for="amount"> <span class="label-text">Amount</span> </label>
 
-		<fieldset>
-			{#each data.users as u}
-				<label>
-					<input type="checkbox" name="targetIds" value={u.id} />
-					{u.id}
-				</label>
+			<input
+				type="number"
+				class="input input-bordered max-w-xs"
+				step="0.01"
+				name="amount"
+				bind:value={amount}
+			/>
+		</div>
+		<fieldset class="grid grid-cols-2 max-w-xs gap-1">
+			{#each users as u}
+				<label for="targetIds"> {u.id}</label>
+				<input class="checkbox" type="checkbox" name="targetIds" value={u.id} />
 			{/each}
 		</fieldset>
 
-		<button>Create</button>
+		<button class="btn max-w-xs">Create</button>
 	</form>
 </div>

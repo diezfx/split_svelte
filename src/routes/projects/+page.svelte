@@ -8,8 +8,10 @@
 <div class="container mx-auto">
 	<table class="table w-full">
 		<thead class="bg-primary-50">
-			<th scope="col">Name</th>
-			<th scope="col">#Transactions</th>
+			<tr>
+				<th scope="col">Name</th>
+				<th scope="col">#Transactions</th>
+			</tr>
 		</thead>
 		<tbody>
 			{#each projectList as project, index}
@@ -25,7 +27,7 @@
 <div class="fixed grid grid-cols-3 w-full bottom-10">
 	<div></div>
 	<a id="create-new-btn" class="content-center" href="projects/create-project">
-		<button class="button">Add New</button>
+		<button class="btn w-full">Add New</button>
 	</a>
 </div>
 

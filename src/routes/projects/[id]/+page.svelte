@@ -16,11 +16,13 @@
 	{:else if project == undefined}
 		NotFound
 	{:else}
-		<table class="table-fixed w-full">
+		<table class="table w-full">
 			<thead>
-				<th>Name</th>
-				<th>Amount</th>
-				<th>Source</th>
+				<tr>
+					<th>Name</th>
+					<th>Amount</th>
+					<th>Source</th>
+				</tr>
 			</thead>
 			{#each project.transactions as transaction}
 				<tr>
@@ -35,7 +37,7 @@
 <div class="fixed grid grid-cols-3 w-full bottom-10">
 	<div></div>
 	<a id="create-new-btn" class="content-center" href="{project?.id}/create-transaction">
-		<button class="button">Add New</button>
+		<button class="btn w-full">Add New</button>
 	</a>
 </div>
 
