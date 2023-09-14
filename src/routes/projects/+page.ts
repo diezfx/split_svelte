@@ -6,10 +6,13 @@ export async function load({ fetch, params, parent }) {
 
     let expenseApi = createExpenseApi(fetch, parentVals.session!)
 
-    let projects = await expenseApi.getProjects();
+
+    const userEmail = "user1" //TODO use correct value
+    parentVals.session?.user.email
 
     return {
-        projects: projects,
+        projects: expenseApi.getProjects(),
+        costs: expenseApi.getUserCosts(userEmail)
     };
 }
 

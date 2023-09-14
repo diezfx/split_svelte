@@ -7,4 +7,7 @@ export default {
       center: true,
     },
   },
+  daisyui: {
+    themes: ["light", "corporate"],
+  },
 };

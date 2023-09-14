@@ -25,3 +25,15 @@ export interface Project {
     transactions: Transaction[]
     members: string[]
 }
+
+
+export interface Cost {
+    expenses: number
+    income: number
+    balance: number
+}
+
+export interface UserCosts {
+    totalCosts: Cost
+    projectCosts: { [key: string]: Cost }
+}
