@@ -3,6 +3,8 @@
 
 	export let data;
 	let projectList = data.projects ?? [];
+
+	console.log((data.costs?.totalCosts.balance ?? 0) < 0);
 </script>
 
 <div class="container grid gap-4 mx-auto">
@@ -11,11 +13,16 @@
 			<h2 class="card-title">My Saldo</h2>
 			<div class="grid grid-cols-2">
 				<div>Expenses</div>
-				<div>{data.costs?.totalCosts.expenses}</div>
+				<div>{data.costs?.totalCosts.expenses.toFixed(2)}€</div>
 				<div>Income</div>
-				<div>{data.costs?.totalCosts.income}</div>
+				<div>{data.costs?.totalCosts.income.toFixed(2)}€</div>
 				<div>Balance</div>
-				<div>{data.costs?.totalCosts.balance}</div>
+				<div
+					class:text-green-700={data.costs?.totalCosts.balance ?? 0 >= 0}
+					class:text-red-700={(data.costs?.totalCosts.balance ?? 0) < 0}
+				>
+					{data.costs?.totalCosts.balance}€
+				</div>
 			</div>
 		</div>
 	</div>

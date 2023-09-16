@@ -19,12 +19,14 @@
 				<th>Balance</th>
 			</tr>
 		</thead>
-		{#each users as user}
-			<tr>
-				<td>{user.id}</td>
-				<td>{(costs[user.id]?.balance ?? 0).toFixed(2)}€</td>
-			</tr>
-		{/each}
+		<tbody>
+			{#each users as user}
+				<tr>
+					<td>{user.id}</td>
+					<td>{(costs[user.id]?.balance ?? 0).toFixed(2)}€</td>
+				</tr>
+			{/each}
+		</tbody>
 	</table>
 </div>
 <div class="fixed grid grid-cols-3 w-full bottom-10 gap-3">

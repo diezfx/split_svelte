@@ -24,13 +24,15 @@
 					<th>Source</th>
 				</tr>
 			</thead>
-			{#each project.transactions ?? [] as transaction}
-				<tr>
-					<td>{transaction.name}</td>
-					<td>{transaction.amount.toFixed(2)}€</td>
-					<td>{transaction.sourceId}</td>
-				</tr>
-			{/each}
+			<tbody>
+				{#each project.transactions ?? [] as transaction}
+					<tr>
+						<td>{transaction.name}</td>
+						<td>{transaction.amount.toFixed(2)}€</td>
+						<td>{transaction.sourceId}</td>
+					</tr>
+				{/each}
+			</tbody>
 		</table>
 	{/if}
 </div>
