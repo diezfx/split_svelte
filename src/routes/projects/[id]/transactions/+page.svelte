@@ -36,10 +36,10 @@
 </div>
 <div class="fixed grid grid-cols-4 w-full bottom-10 gap-3">
 	<div></div>
-	<a id="create-new-btn" class="content-center" href="{project?.id}/create-transaction">
+	<a id="create-new-btn" class="content-center" href="/projects/{project?.id}/create-transaction">
 		<button class="btn w-full">Add New</button>
 	</a>
-	<a id="create-new-btn" class="content-center" href="{project?.id}/add-user">
+	<a id="create-new-btn" class="content-center" href="/projects/{project?.id}/add-user">
 		<button class="btn w-full">Add User</button>
 	</a>
 </div>

@@ -37,3 +37,8 @@ export interface UserCosts {
     totalCosts: Cost
     projectCosts: { [key: string]: Cost }
 }
+
+export interface ProjectCosts {
+    totalCosts: number
+    costsByUser: { [key: string]: Cost }
+}

@@ -1,6 +1,6 @@
 import { cfg } from "$lib/config/config";
 import type { Session } from "@supabase/supabase-js";
-import type { Project, Transaction, User, UserCosts } from "./models";
+import type { Project, ProjectCosts, Transaction, User, UserCosts } from "./models";
 import type { Fetch } from "@supabase/supabase-js/dist/module/lib/types";
 
 
@@ -10,7 +10,9 @@ export interface ExpenseApi {
     addProject(proj: Project): Promise<any>
     addTransaction(projId: string, transaction: Transaction): Promise<any>
     getProjectUsers(id: string): Promise<User[] | null>
+    getProjectCosts(id: string): Promise<ProjectCosts | null>
     getUserCosts(id: string): Promise<UserCosts | null>
+    addProjectUser(projectId: string, user: User): Promise<any>
 }
 
 
@@ -73,9 +75,27 @@ export function createExpenseApi(fetch: Fetch, session: Session): ExpenseApi {
         return response.json()
     }
 
+    async function getProjectCosts(projectId: string): Promise<ProjectCosts | null> {
+        const path = `${cfg.apiUrl}/api/v1.0/projects/${projectId}/costs`
+        let response = await fetch(path, { method: "GET", headers: authHeader })
+        if (response.status > 300) {
+            console.log(response)
+            return null
+        }
+        return response.json()
+    }
+
+    async function addProjectUser(projectId: string, user: User): Promise<any> {
+        const path = `${cfg.apiUrl}/api/v1.0/projects/${projectId}/users`
+        let response = await fetch(path, { method: "POST", body: JSON.stringify(user), headers: authHeader })
+        if (response.status > 300) {
+            console.log(response)
+        }
+    }
 
 
-    return { getProjects, getProject, addProject, addTransaction, getProjectUsers, getUserCosts }
+
+    return { getProjects, getProject, addProject, addTransaction, getProjectUsers, getUserCosts, addProjectUser, getProjectCosts }
 
 
 

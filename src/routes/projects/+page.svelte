@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	export let data;
-	let projectList = data.projects;
+	let projectList = data.projects ?? [];
 </script>
 
 <div class="container grid gap-4 mx-auto">
