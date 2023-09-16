@@ -1,12 +1,5 @@
-import { createExpenseApi } from '$lib/expenses/api.js';
+import { redirect } from '@sveltejs/kit';
 
 export async function load({ fetch, params, parent }) {
-	let parentVals = await parent()
-
-	let exponseApi = createExpenseApi(fetch, parentVals.session!)
-
-	return {
-		project: exponseApi.getProject(params.id),
-		id: params.id
-	};
+	throw redirect(303, `/projects/${params.id}/transactions`)
 }
