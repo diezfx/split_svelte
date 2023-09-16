@@ -10,4 +10,3 @@ export async function load({ fetch, params, parent }) {
 		id: params.id
 	};
 }
-

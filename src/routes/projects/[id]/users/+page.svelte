@@ -22,7 +22,7 @@
 		{#each users as user}
 			<tr>
 				<td>{user.id}</td>
-				<td>{costs[user.id]?.balance ?? 0}</td>
+				<td>{(costs[user.id]?.balance ?? 0).toFixed(2)}€</td>
 			</tr>
 		{/each}
 	</table>

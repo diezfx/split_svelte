@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 
-	export let form;
-
 	import { TransactionType } from '$lib/expenses/models';
 	const transactionTypes = Object.keys(TransactionType);
 </script>
