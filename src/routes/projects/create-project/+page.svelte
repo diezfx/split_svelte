@@ -9,11 +9,13 @@
 </script>
 
 <div class="container">
-	<form method="post" use:enhance>
-		<label for="name">
-			Name
-			<input id="name" name="name" />
-		</label>
+	<form method="post" class="form-control grid grid-cols-1 gap-5" use:enhance>
+		<div>
+			<label class="label" for="name">
+				<span class="label-text">Name</span>
+			</label>
+			<input id="name" class="input input-primary input-bordered max-w-xs" name="name" />
+		</div>
 
 		<button>Create</button>
 	</form>

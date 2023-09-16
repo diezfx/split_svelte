@@ -18,14 +18,14 @@
 				<span class="label-text">Name</span>
 			</label>
 
-			<input id="name" class="input input-primary input-bordered w-full max-w-xs" name="name" />
+			<input id="name" class="input input-primary input-bordered max-w-xs" name="name" />
 		</div>
 		<div>
 			<label for="transactionType" class="label"> TransactionType </label>
 
 			<select
 				id="transactionType"
-				class="select select-bordered select-primary w-full max-w-xs"
+				class="select select-bordered select-primary max-w-xs"
 				bind:value={test}
 			>
 				{#each transactionTypes as t}
@@ -54,7 +54,7 @@
 				bind:value={amount}
 			/>
 		</div>
-		<fieldset class="grid grid-cols-2 max-w-xs gap-1">
+		<fieldset class="h-32 overflow-auto grid grid-cols-2 max-w-xs gap-1">
 			{#each users as u}
 				<label for="targetIds"> {u.id}</label>
 				<input class="checkbox" type="checkbox" name="targetIds" value={u.id} />
