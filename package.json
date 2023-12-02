@@ -41,7 +41,7 @@
 		"@popperjs/core": "^2.11.8",
 		"@supabase/auth-helpers-sveltekit": "^0.10.2",
 		"@supabase/supabase-js": "^2.33.1",
-		"tailwind-merge": "^1.14.0",
+		"tailwind-merge": "^2.0.0",
 		"uuid": "^9.0.0"
 	}
 }
